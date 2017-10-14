@@ -1,3 +1,16 @@
+/*
+ * FACULDADE SENAC PORTO ALEGRE
+ * Curso.....: Tecnologia em Análise e Desenvolvimento de Sistemas
+ * Aluno.....: 631710016 - Sérgio Nunes Ferreira
+ * Disciplina: Algoritmos e Programação II - 2017/2
+ * Professor.: RAFAEL GUTERRES JEFFMAN
+ * 
+ * Atividade.: APS02 - Leitura de arquivos texto em Java.
+ * Objetivo..: Ler um arquivo em formato de texto e criar objetos com a informação 
+ * 			   contida nos arquivos utilizados como exemplo.
+ * 
+ */
+
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.util.ArrayList;
