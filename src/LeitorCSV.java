@@ -9,28 +9,28 @@ public class LeitorCSV {
 
     public static void main(String[] args) {
     	
-    	BufferedReader inputStream = null;
-    	String linha = null;
-        String[] dadosLinha;
-        ArrayList<Participante> participante = new ArrayList<Participante>();
+    	BufferedReader is = null;												// InputStream bufferizado
+    	String linha = null;													// Linha lida
+        String[] dadosLinha;													// Array com dados da linha lida
+        ArrayList<Participante> participante = new ArrayList<Participante>();	// Coleção de objetos que serão lidos
 
         try {
-            inputStream = new BufferedReader(new FileReader(ARQUIVO));
-            while ((linha = inputStream.readLine()) != null) {
-        	 dadosLinha = linha.split(SEPARADOR);
-        	 participante.add(new Participante(dadosLinha[0],dadosLinha[1]));
+            is = new BufferedReader(new FileReader(ARQUIVO));					// 'is' (InputStream) receberá leitura bufferizada  
+            while ((linha = is.readLine()) != null) {							// Entrada linha a linha
+        	 dadosLinha = linha.split(SEPARADOR);								// Array com os dados da linha
+        	 participante.add(new Participante(dadosLinha[0],dadosLinha[1]));	// Adicionado novo Participante na coleção (arraylist)
             }
-            mostrarObjetosCriados(participante);
+            mostrarObjetosCriados(participante);								// Apresentação dos objetos criados
         }
         catch (IOException e) {
         	errormsg(e,true);
             
         } finally {
-            if (inputStream != null) {
+            if (is != null) {
                 try {
-					inputStream.close();
-				} catch (IOException e) {
-		        	errormsg(e,true);
+					is.close();													// Fechamento do Stream. Usado finally para garantir
+				} catch (IOException e) {										//  o fechamento tanto quando a leitura ocorrer quanto
+		        	errormsg(e,true);											//  se houver erro de leitura.
 				}
             }
         }
